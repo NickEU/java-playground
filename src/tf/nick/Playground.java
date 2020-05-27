@@ -1,4 +1,7 @@
 package tf.nick;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.Locale;
@@ -7,7 +10,19 @@ public class Playground {
     public static void main(String[] args) {
         incVsDec();
         stringFormat();
+        enums();
         dotVsComma();
+    }
+
+    private static void enums() {
+        System.out.println(Arrays.toString(Month.values()));
+        // [JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC]
+        System.out.println(Month.valueOf("JUN")); // JUN
+        Month dec1 = Month.DEC;
+        System.out.println(dec1); // DEC
+        System.out.println(Month.JAN.getNumber()); // 1
+        Month aug = Month.AUG;
+        System.out.println(aug); // AUG
     }
 
     private static void incVsDec() {
@@ -19,12 +34,17 @@ public class Playground {
 
     private static void dotVsComma() {
         System.out.println("Enter an integer:");
-
         Scanner scanner = new Scanner(System.in);
-        double userNumber = Double.parseDouble(scanner.nextLine());
+        scanner.useLocale(Locale.FRANCE);
 
-        System.out.printf(Locale.GERMANY, "You entered: %.2f%n", userNumber); // 5,00
-        System.out.printf(Locale.US, "You entered: %.2f", userNumber); // 5.00
+        NumberFormat nf = NumberFormat.getInstance(new Locale("ru", "ru"));
+        try {
+            double userNumber = nf.parse(scanner.nextLine()).doubleValue();
+            System.out.printf(Locale.GERMANY, "You entered: %.2f%n", userNumber); // 5,00
+            System.out.printf(Locale.US, "You entered: %.2f", userNumber); // 5.00
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void stringFormat() {
@@ -38,5 +58,7 @@ public class Playground {
         System.out.printf("Year-Month-Day = %1$tY-%1$tm-%1$td %n", now); // 2000-01-01
         System.out.printf("Year-Month-Day = %tY-%<tm-%<td %n", now); // 2000-01-01
         System.out.printf("Since Unix epoch = %ts%n", now);
+        System.out.printf("Indent %-10d %d %n", 5, 7); // Indent 5          7
     }
 }
+
