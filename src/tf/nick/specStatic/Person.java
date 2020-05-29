@@ -13,8 +13,15 @@ public class Person {
     private Person(String name, int age) {
         this.name = name;
         this.age = age;
+
+        // What happens when the constructor throws an exception?
+        // Reference to this unfinished object gets stuck in the collection
+        // and it never gets GC-ed
+        // For ex. can happen in a constructor of one of the children of Person
+        // people.add(this);
     }
 
+    // A safer alternative
     public static Person create(String name, int age) {
         Person p = new Person(name, age);
         people.add(p);
