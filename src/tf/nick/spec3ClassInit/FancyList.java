@@ -1,4 +1,4 @@
-package tf.nick.spec;
+package tf.nick.spec3ClassInit;
 
 import java.util.ArrayList;
 import java.util.List;

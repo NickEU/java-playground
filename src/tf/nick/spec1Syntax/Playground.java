@@ -1,4 +1,4 @@
-package tf.nick.specSyntax;
+package tf.nick.spec1Syntax;
 
 import java.text.NumberFormat;
 import java.text.ParseException;

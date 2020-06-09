@@ -1,4 +1,4 @@
-package tf.nick.spec;
+package tf.nick.spec3ClassInit;
 
 public class Program {
   public static void main(String[] args) {

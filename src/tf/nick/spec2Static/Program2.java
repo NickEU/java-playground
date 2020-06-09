@@ -1,4 +1,4 @@
-package tf.nick.specStatic;
+package tf.nick.spec2Static;
 
 public class Program2 {
   public static void main(String[] args) {
