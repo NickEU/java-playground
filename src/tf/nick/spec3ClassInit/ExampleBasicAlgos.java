@@ -1,6 +1,6 @@
 package tf.nick.spec3ClassInit;
 
-public class Program {
+public class ExampleBasicAlgos {
   public static void main(String[] args) {
     System.out.println(FancyList.numbers);
     findGCDTest();

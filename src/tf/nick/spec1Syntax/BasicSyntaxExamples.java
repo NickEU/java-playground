@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Scanner;
 import java.util.Locale;
 
-public class Playground {
+public class BasicSyntaxExamples {
   public static void main(String[] args) {
     incVsDec();
     stringFormat();

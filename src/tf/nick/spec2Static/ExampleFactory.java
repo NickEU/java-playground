@@ -1,6 +1,6 @@
 package tf.nick.spec2Static;
 
-public class Program2 {
+public class ExampleFactory {
   public static void main(String[] args) {
     Person.showAll();
     Person p1 = Person.create("Helen", 26);
