@@ -7,7 +7,7 @@ public class TwoSum {
     TwoSum o = new TwoSum();
     Pair pair = o.findPair(new int[] {2, 1, 5, 4, 6}, 11);
     if (pair != null) {
-      System.out.println(pair.getFirst() == 5 && pair.getSecond() == 6);
+      System.out.println(pair.equals(new Pair(5, 6)));
     }
   }
   // Time: O(nlogn) for unsorted arrays. (a version for sorted arrays would be O(n))
