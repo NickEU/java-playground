@@ -1,4 +1,4 @@
-package tf.nick.interviewCamp;
+package tf.nick.interviewCamp.ic01TwoSum;
 
 // Given an array of integers, find a pair of integers that sums to a number Target.
 // For e.g, if A = [6,3,5,2,1,7]. Target = 4, Result= [3,1]
@@ -6,7 +6,7 @@ package tf.nick.interviewCamp;
 import java.util.Arrays;
 import java.util.HashSet;
 
-public class IC01TwoSum {
+public class TwoSum {
   public static void main(String[] args) {
     testTwoSum();
   }
