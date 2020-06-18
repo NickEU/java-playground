@@ -19,13 +19,18 @@ public class ReverseWordsInSentence {
     if (sentence == null) {
       return null;
     }
-    String[] words = sentence.split(" ");
-    for (int i = 0, j = words.length - 1; i < j; i++, j--) {
-      String temp = words[i];
-      words[i] = words[j];
-      words[j] = temp;
+    StringBuilder reversedSentence = new StringBuilder();
+    int strLen = sentence.length();
+    int wordEndIdx = strLen;
+    for (int i = strLen - 1; i >= 0; i--) {
+      if (sentence.charAt(i) == ' ') {
+        String word = sentence.substring(i + 1, wordEndIdx);
+        reversedSentence.append(word).append(" ");
+        wordEndIdx = i;
+      }
     }
-    return String.join(" ", words);
+    reversedSentence.append(sentence, 0, wordEndIdx);
+    return reversedSentence.toString();
   }
 
   private static String reverseDeclarative(String sentence) {
