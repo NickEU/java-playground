@@ -10,7 +10,7 @@ public class TwoSum {
       System.out.println(pair.getFirst() == 5 && pair.getSecond() == 6);
     }
   }
-  // Time: O(nlogn) for unsorted arrays, O(n) for sorted
+  // Time: O(nlogn) for unsorted arrays. (a version for sorted arrays would be O(n))
   // Space: O(1)
   private Pair findPair(int[] numbers, int targetSum) {
     if (numbers == null) {
