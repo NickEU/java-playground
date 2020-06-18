@@ -9,14 +9,15 @@ public class SortedSquares {
   //  How can you do it in O(n) time?
 
   public static void main(String[] args) {
-    int[] input = {-4, -2, -1, 0, 3, 5};
+    int[] input = {-4, -2, -1, 0, 1, 3, 5};
 
     int[] actual = getArray(input);
-    int[] expected = {0,1,4,9,16,25};
+    int[] expected = {0,1,1,4,9,16,25};
 
     System.out.println(Arrays.equals(actual, expected));
   }
 
+  // Time O(n) Space O(n)
   private static int[] getArray(int[] arr) {
     int[] sortedSquares = new int[arr.length];
 
@@ -32,27 +33,22 @@ public class SortedSquares {
     // 4) decrement the said offset by one
     // 5) move up related pointer closer to the opposite end
     // 6) if pointers do not point to the same el go to 2)
-    // 7) if they do point to the same el push the square of the smaller one
-    // 7) to the first el of the result array and return
+    // 7) if they do point to the same el push the square of the number
+    // 7) from said el to the first el of the result array and return
     while (true) {
       int leftMostNum = Math.abs(arr[i]);
       int rightMostNum = Math.abs(arr[j]);
       if (leftMostNum > rightMostNum) {
         sortedSquares[resultIdx--] = leftMostNum * leftMostNum;
         i++;
-        if (i == j) {
-          sortedSquares[resultIdx] = rightMostNum * rightMostNum;
-          break;
-        }
       } else {
         sortedSquares[resultIdx--] = rightMostNum * rightMostNum;
         j--;
-        if (i == j) {
-          sortedSquares[resultIdx] = leftMostNum * leftMostNum;
-          break;
-        }
       }
-
+      if (i == j) {
+        sortedSquares[resultIdx] = Math.abs(arr[i]) * Math.abs(arr[i]);
+        break;
+      }
     }
 
     return sortedSquares;
