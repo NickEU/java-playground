@@ -1,4 +1,4 @@
-package tf.nick.interviewCamp.ic03reverseTraversal;
+package tf.nick.interviewCamp.ic03ArrayTraversal;
 
 import java.util.Arrays;
 import java.util.Collections;

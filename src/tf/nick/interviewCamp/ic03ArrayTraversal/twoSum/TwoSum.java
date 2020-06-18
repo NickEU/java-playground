@@ -1,4 +1,4 @@
-package tf.nick.interviewCamp.ic03reverseTraversal.twoSum;
+package tf.nick.interviewCamp.ic03ArrayTraversal.twoSum;
 
 import java.util.Arrays;
 

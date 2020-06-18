@@ -1,4 +1,4 @@
-package tf.nick.interviewCamp.ic03reverseTraversal.twoSum;
+package tf.nick.interviewCamp.ic03ArrayTraversal.twoSum;
 
 class Pair {
   private final int first;
