@@ -42,7 +42,7 @@ public class IC02bMatrixIslands {
           IC02bCoordinate currentTile = new IC02bCoordinate(i, j);
           if (!landTiles.contains(currentTile)) {
             islandCount++;
-            markAllConnectedTiles(currentTile);
+            markTileAndItsConnections(currentTile);
           }
         }
       }
@@ -51,26 +51,26 @@ public class IC02bMatrixIslands {
     return islandCount;
   }
 
-  private void markAllConnectedTiles(IC02bCoordinate tile) {
+  private void markTileAndItsConnections(IC02bCoordinate tile) {
     landTiles.add(tile);
     int i = tile.getRow();
     int j = tile.getColumn();
 
     if (j < map[i].length - 1)
-      checkTile(i, j + 1);
+      ifTileIsLandMakeSureItsMarked(i, j + 1);
     if (j > 0)
-      checkTile(i, j - 1);
+      ifTileIsLandMakeSureItsMarked(i, j - 1);
     if (i < map.length - 1)
-      checkTile(i + 1, j);
+      ifTileIsLandMakeSureItsMarked(i + 1, j);
     if (i > 0)
-      checkTile(i - 1, j);
+      ifTileIsLandMakeSureItsMarked(i - 1, j);
   }
 
-  private void checkTile(int i, int j) {
+  private void ifTileIsLandMakeSureItsMarked(int i, int j) {
     if (map[i][j] == '1') {
       IC02bCoordinate adjacentTile = new IC02bCoordinate(i, j);
       if (!landTiles.contains(adjacentTile)) {
-        markAllConnectedTiles(adjacentTile);
+        markTileAndItsConnections(adjacentTile);
       }
     }
   }
