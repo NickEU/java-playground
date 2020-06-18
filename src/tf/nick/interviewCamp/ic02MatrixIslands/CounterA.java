@@ -1,4 +1,4 @@
-package tf.nick.interviewCamp.matrixIslands;
+package tf.nick.interviewCamp.ic02MatrixIslands;
 
 // basic steps:
 // go over the map row by row
@@ -8,33 +8,20 @@ package tf.nick.interviewCamp.matrixIslands;
 // keep going until we find water.
 // -- do the same for next row
 
-public class IC02aMatrixIslands {
+public class CounterA implements ICounter {
   private static boolean traversingIsland;
   private static boolean noAdjacentLandFound;
   private static int islandCount;
 
   public static void main(String[] args) {
-    char[][] testMap = new char[][] {{'1', '0', '1'},
-                                   {'0', '1', '1'},
-                                   {'0', '1', '1'}};
-
-    System.out.println(countIslands(testMap) == 2);
-
-    char[][] testMap2 = new char[][] {{'1', '1', '0'},
-                                    {'0', '0', '1'},
-                                    {'1', '1', '0'}};
-
-    System.out.println(countIslands(testMap2) == 3);
-
-    char[][] testMap3 = {{'1','0','1','1','1'},
-                         {'1','0','1','0','1'},
-                         {'1','1','1','0','1'}};
-    System.out.println(countIslands(testMap3));
+    ICounter counter = new CounterA();
+    CounterTest.runTestCases(counter);
   }
 
   // bad initial solution, fails when faced with snake-shaped islands
   // that have two "tails" on one level;
-  private static int countIslands(char[][] map) {
+  @Override
+  public int countIslands(char[][] map) {
     if (map == null) {
       return 0;
     }

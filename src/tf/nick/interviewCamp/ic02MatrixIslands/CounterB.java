@@ -1,37 +1,23 @@
-package tf.nick.interviewCamp.matrixIslands;
+package tf.nick.interviewCamp.ic02MatrixIslands;
 
 import java.util.HashSet;
 
-public class IC02bMatrixIslands {
+public class CounterB implements ICounter {
 
   public static void main(String[] args) {
-    IC02bMatrixIslands counter = new IC02bMatrixIslands();
-    char[][] testMap = new char[][] {{'1', '0', '1'},
-                                     {'0', '1', '1'},
-                                     {'0', '1', '1'}};
-
-    System.out.println(counter.countIslands(testMap) == 2);
-
-    char[][] testMap2 = new char[][] {{'1', '1', '0'},
-                                      {'0', '0', '1'},
-                                      {'1', '1', '0'}};
-
-    System.out.println(counter.countIslands(testMap2) == 3);
-
-    char[][] testMap3 = {{'1','0','1','1','1'},
-                         {'1','0','1','0','1'},
-                         {'1','1','1','0','1'}};
-    System.out.println(counter.countIslands(testMap3) == 1);
+    ICounter counter = new CounterB();
+    CounterTest.runTestCases(counter);
   }
 
-  private HashSet<IC02bCoordinate> landTiles;
+  private HashSet<Coordinate> landTiles;
   private char[][] map;
 
   // slow, but works.
   // goes over all the tiles one by one and marks all adjacent tiles of a land tile by putting
   // unique sets of coordinates in a HashSet. If an adjacent tile happens to
   // be already marked ( its coords are inside a hashset ) - skips it.
-  private int countIslands(char[][] map) {
+  @Override
+  public int countIslands(char[][] map) {
     this.map = map;
     landTiles = new HashSet<>();
     int islandCount = 0;
@@ -39,7 +25,7 @@ public class IC02bMatrixIslands {
     for (int i = 0; i < map.length; i++) {
       for (int j = 0; j < map[i].length; j++) {
         if (map[i][j] == '1') {
-          IC02bCoordinate currentTile = new IC02bCoordinate(i, j);
+          Coordinate currentTile = new Coordinate(i, j);
           if (!landTiles.contains(currentTile)) {
             islandCount++;
             markTileAndItsConnections(currentTile);
@@ -51,7 +37,7 @@ public class IC02bMatrixIslands {
     return islandCount;
   }
 
-  private void markTileAndItsConnections(IC02bCoordinate tile) {
+  private void markTileAndItsConnections(Coordinate tile) {
     landTiles.add(tile);
     int i = tile.getRow();
     int j = tile.getColumn();
@@ -68,7 +54,7 @@ public class IC02bMatrixIslands {
 
   private void ifTileIsLandMakeSureItsMarked(int i, int j) {
     if (map[i][j] == '1') {
-      IC02bCoordinate adjacentTile = new IC02bCoordinate(i, j);
+      Coordinate adjacentTile = new Coordinate(i, j);
       if (!landTiles.contains(adjacentTile)) {
         markTileAndItsConnections(adjacentTile);
       }
