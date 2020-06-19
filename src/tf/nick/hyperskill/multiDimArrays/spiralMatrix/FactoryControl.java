@@ -2,7 +2,7 @@ package tf.nick.hyperskill.multiDimArrays.spiralMatrix;
 
 import java.util.Scanner;
 
-class ProgramSpiralMatrix {
+public class FactoryControl {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     System.out.print("Enter the size of your matrix: ");
@@ -12,7 +12,7 @@ class ProgramSpiralMatrix {
     printMatrixToConsole(matrix);
   }
 
-  private static void printMatrixToConsole(int[][] matrix) {
+  public static void printMatrixToConsole(int[][] matrix) {
     if (matrix == null) {
       System.out.println("Size can't be <= 0, amigo!");
       return;
