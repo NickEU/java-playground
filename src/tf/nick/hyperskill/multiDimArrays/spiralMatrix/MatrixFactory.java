@@ -1,21 +1,12 @@
-package tf.nick.hyperskill.spiralMatrix;
+package tf.nick.hyperskill.multiDimArrays.spiralMatrix;
 
 import java.util.Arrays;
 
 public class MatrixFactory {
-  enum Action {
-    GO_UP,
-    GO_DOWN,
-    GO_LEFT,
-    GO_RIGHT,
-    NOTHING,
-  }
-
   private int i;
   private int j;
   private Action action;
   private int[][] matrix;
-
 
   public int[][] createSpiralForm(int size) {
     if (size <= 0) {

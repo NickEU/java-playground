@@ -1,4 +1,4 @@
-package tf.nick.hyperskill.spiralMatrix;
+package tf.nick.hyperskill.multiDimArrays.spiralMatrix;
 
 import java.util.Scanner;
 
