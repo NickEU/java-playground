@@ -1,5 +1,6 @@
 package tf.nick.grokkingAlgo.bfsExample;
 
+import java.util.Collections;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,12 +16,16 @@ public class Person {
         this.age = age;
     }
 
+    public int getAge() {
+        return age;
+    }
+
     public String getName() {
         return name;
     }
 
     public List<Person> getNeighbours() {
-        return neighbours;
+        return Collections.unmodifiableList(neighbours);
     }
 
     public void addNeighbour(Person person) {
@@ -48,9 +53,9 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "nr of connections=" + neighbours.size() +
-                ", name='" + name + '\'' +
-                ", age=" + age +
+                "nr of connections=" + getNeighbours().size() +
+                ", name='" + getName() + '\'' +
+                ", age=" + getAge() +
                 '}';
     }
 }

@@ -13,8 +13,9 @@ class People {
         startingNode = john;
     }
 
-    private void resetStartingNode() {
+    private void prepareForTraversal() {
         queue = new LinkedList<>();
+        visited = new HashSet<>();
         queue.add(startingNode);
     }
 
@@ -25,8 +26,7 @@ class People {
         }
 
         System.out.println("Searching for someone named " + name);
-        resetStartingNode();
-        visited = new HashSet<>();
+        prepareForTraversal();
 
         while (queue.peek() != null) {
             Person nextPerson = queue.poll();
