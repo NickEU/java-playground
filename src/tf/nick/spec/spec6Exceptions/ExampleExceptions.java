@@ -1,4 +1,4 @@
-package tf.nick.spec6Exceptions;
+package tf.nick.spec.spec6Exceptions;
 
 import java.util.Scanner;
 

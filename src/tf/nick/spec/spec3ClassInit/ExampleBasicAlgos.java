@@ -1,4 +1,4 @@
-package tf.nick.spec3ClassInit;
+package tf.nick.spec.spec3ClassInit;
 
 public class ExampleBasicAlgos {
   public static void main(String[] args) {

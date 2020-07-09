@@ -1,4 +1,4 @@
-package tf.nick.spec5Supplier;
+package tf.nick.spec.spec5Supplier;
 
 import java.util.Scanner;
 import java.util.function.Function;

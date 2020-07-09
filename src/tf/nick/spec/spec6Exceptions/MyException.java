@@ -1,4 +1,4 @@
-package tf.nick.spec6Exceptions;
+package tf.nick.spec.spec6Exceptions;
 
 public class MyException extends Exception {
     private final int ID;

@@ -1,4 +1,4 @@
-package tf.nick.spec2Static;
+package tf.nick.spec.spec2Static;
 
 import java.util.ArrayList;
 import java.util.List;

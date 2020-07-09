@@ -1,4 +1,4 @@
-package tf.nick.spec2Static;
+package tf.nick.spec.spec2Static;
 
 public class ExampleFactory {
   public static void main(String[] args) {

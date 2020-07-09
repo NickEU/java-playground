@@ -1,4 +1,4 @@
-package tf.nick.spec1Syntax;
+package tf.nick.spec.spec1Syntax;
 
 public enum Month {
   JAN(1),

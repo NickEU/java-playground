@@ -1,4 +1,4 @@
-package tf.nick.spec4FunctionalInterface;
+package tf.nick.spec.spec4FunctionalInterface;
 
 public class ExampleFuncInterface {
   public static void main(String[] args) {
