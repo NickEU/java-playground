@@ -1,6 +1,8 @@
 package tf.nick.hyperskill.ticTacToe.firstMoveStage4;
 
-public class GameBoard {
+class GameBoard {
+    static final char X_CHAR = 'X';
+    static final char O_CHAR = 'O';
     private final char[][] boardCells;
 
     GameBoard(String initialBoardState) {
@@ -16,5 +18,19 @@ public class GameBoard {
 
     char[][] getBoardCells() {
         return this.boardCells.clone();
+    }
+
+    boolean cellIsOccupied(int row, int col) {
+        char targetCell = boardCells[row][col];
+        return targetCell == X_CHAR || targetCell == O_CHAR;
+    }
+
+    boolean tryChangeCell(int row, int col, char piece) {
+        if (cellIsOccupied(row, col)) {
+            return false;
+        }
+
+        boardCells[row][col] = piece;
+        return true;
     }
 }

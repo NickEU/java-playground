@@ -1,21 +1,22 @@
 package tf.nick.hyperskill.ticTacToe.firstMoveStage4;
 
-public class RuleAnalyzer {
+import static tf.nick.hyperskill.ticTacToe.firstMoveStage4.GameBoard.O_CHAR;
+import static tf.nick.hyperskill.ticTacToe.firstMoveStage4.GameBoard.X_CHAR;
+
+class RuleAnalyzer {
     private final GameBoard board;
     private final int SIZE;
-    private final char X_CHAR = 'X';
-    private final char O_CHAR = 'O';
 
-    public RuleAnalyzer(GameBoard board) {
+    RuleAnalyzer(GameBoard board) {
         this.board = board;
-        SIZE = this.getCells().length;
+        SIZE = getCells().length;
     }
 
     private char[][] getCells() {
         return board.getBoardCells();
     }
 
-    public boolean illegalXODifference() {
+    boolean illegalXODifference() {
         return Math.abs(countChar(X_CHAR) - countChar(O_CHAR)) >= 2;
     }
 
@@ -31,11 +32,11 @@ public class RuleAnalyzer {
         return count;
     }
 
-    public boolean xWins() {
+    boolean xWins() {
         return charHasWon(X_CHAR);
     }
 
-    public boolean oWins() {
+    boolean oWins() {
         return charHasWon(O_CHAR);
     }
 
@@ -105,7 +106,7 @@ public class RuleAnalyzer {
         return false;
     }
 
-    public boolean noEmptyCellsLeft() {
+    boolean noEmptyCellsLeft() {
         for (char[] row : getCells()) {
             for (char cell : row) {
                 if (cell != X_CHAR && cell != O_CHAR) {

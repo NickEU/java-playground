@@ -1,6 +1,6 @@
 package tf.nick.hyperskill.ticTacToe.firstMoveStage4;
 
-public enum UserMoveResult {
+enum UserMoveResult {
     SUCCESS(""),
     FAIL_CELL_OCCUPIED("This cell is occupied! Choose another one!"),
     FAIL_NAN("You should enter numbers!"),
