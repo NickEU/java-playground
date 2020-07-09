@@ -1,7 +1,7 @@
-package tf.nick.hyperskill.ticTacToe.firstMoveStage4;
+package tf.nick.hyperskill.ticTacToe.stage4FirstMove;
 
-import static tf.nick.hyperskill.ticTacToe.firstMoveStage4.GameBoard.O_CHAR;
-import static tf.nick.hyperskill.ticTacToe.firstMoveStage4.GameBoard.X_CHAR;
+import static tf.nick.hyperskill.ticTacToe.stage4FirstMove.GameBoard.O_CHAR;
+import static tf.nick.hyperskill.ticTacToe.stage4FirstMove.GameBoard.X_CHAR;
 
 class RuleAnalyzer {
     private final GameBoard board;

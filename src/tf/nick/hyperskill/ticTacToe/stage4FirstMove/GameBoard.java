@@ -1,4 +1,4 @@
-package tf.nick.hyperskill.ticTacToe.firstMoveStage4;
+package tf.nick.hyperskill.ticTacToe.stage4FirstMove;
 
 class GameBoard {
     static final char X_CHAR = 'X';
