@@ -1,4 +1,4 @@
-package tf.nick.hyperskill.ticTacToe.fieldAnalyzerStage3;
+package tf.nick.hyperskill.ticTacToe.stage3FieldAnalyzer;
 
 public class GameBoard {
     private final char[][] boardCells;
