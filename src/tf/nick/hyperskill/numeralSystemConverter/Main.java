@@ -56,6 +56,7 @@ public class Main {
         return srcNum.matches("^[a-z0-9]*\\.?[a-z0-9]*$");
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     private static boolean radixIsValid(int radix) {
         final int minRadix = 1;
         final int maxRadix = 36;
