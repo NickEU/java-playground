@@ -4,17 +4,17 @@ import java.math.BigDecimal;
 
 class NumConverter {
     static String convert(String srcNum, int srcRadix, int targetRadix) {
-        System.out.printf("Input = converting %s in radix %d to radix %d\n"
+        System.out.printf("Converting %s in radix %d to radix %d:\n"
             , srcNum, srcRadix, targetRadix);
         double srcInDecimal =
                 srcRadix == 1 ? srcNum.length() :
                 srcRadix == 10 ? Double.parseDouble(srcNum) :
-                        fromSrcToDecimal(srcNum, srcRadix);
+                        toDecimal(srcNum, srcRadix);
         return targetRadix == 1 ? "1".repeat((int) srcInDecimal)
-                : fromDecimalToTarget(srcInDecimal, targetRadix);
+                : toTargetRadix(srcInDecimal, targetRadix);
     }
 
-    private static double fromSrcToDecimal(String srcNum, int srcRadix) {
+    private static double toDecimal(String srcNum, int srcRadix) {
         String[] numAsArr = srcNum.split("\\.");
         String intPart = numAsArr[0];
         int intResult = Integer.parseInt(intPart, srcRadix);
@@ -28,7 +28,7 @@ class NumConverter {
         return intResult + decResult;
     }
 
-    private static String fromDecimalToTarget(double srcInDecimal, int targetRadix) {
+    private static String toTargetRadix(double srcInDecimal, int targetRadix) {
         BigDecimal[] intFrac = BigDecimal.valueOf(srcInDecimal)
                 .divideAndRemainder(BigDecimal.ONE);
         int intPart = intFrac[0].intValue();
