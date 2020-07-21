@@ -29,6 +29,14 @@ public class ArraySearch {
                 .mapToInt(o -> o.idx)
                 .reduce(-1, (lastIdx, idx) -> idx);
     }
+    // https://hyperskill.org/learn/step/3100
+    public static int searchInSubArray(int[] numbers, int startIndex, int endIndex, int value) {
+        return IntStream.range(startIndex, endIndex)
+                .mapToObj(i -> new IdxNumPair(i, numbers[i]))
+                .dropWhile(o -> o.num != value)
+                .mapToInt(o -> o.idx)
+                .limit(1).reduce(-1, (acc, cur) -> cur);
+    }
 
     static class IdxNumPair {
         final int idx;
