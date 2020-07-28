@@ -7,12 +7,16 @@ import java.util.Scanner;
 
 public class BalancedBrackets {
     public static void main(String[] args) {
+        System.out.println(isSequenceBalanced("{}[]()"));
+        System.out.println(isSequenceBalanced("{[]()}"));
+        System.out.println(!isSequenceBalanced("{}[]((()"));
+        System.out.println(!isSequenceBalanced("([)]"));
         String input = new Scanner(System.in).nextLine();
-        System.out.println(checkSequenceForBalance(input));
+        System.out.println(isSequenceBalanced(input));
 
     }
 
-    private static boolean checkSequenceForBalance(String input) {
+    private static boolean isSequenceBalanced(String input) {
         Deque<Character> stack = new ArrayDeque<>();
 
         for (char bracket : input.toCharArray()) {
