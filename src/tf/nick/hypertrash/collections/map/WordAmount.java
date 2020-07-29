@@ -1,4 +1,4 @@
-package tf.nick.hypertrash.collections;
+package tf.nick.hypertrash.collections.map;
 
 import java.util.Arrays;
 import java.util.HashMap;
