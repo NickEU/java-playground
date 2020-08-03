@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 public class FindCollectionOfElements {
     public static void main(String[] args) {
         var sc = new Scanner(System.in);
-        int numsSize = Integer.parseInt(sc.nextLine().trim());
+        int numsSize = sc.nextInt();
         int[] nums = new int[numsSize];
         IntStream.range(0, numsSize)
             .forEach(i -> nums[i] = sc.nextInt());
@@ -21,11 +21,40 @@ public class FindCollectionOfElements {
         List<Integer> lookingFor = sc.tokens().limit(collectionSize)
             .mapToInt(Integer::parseInt)
             .boxed().collect(Collectors.toList());
-        List<Integer> result = searchForNumsInArray(lookingFor, nums);
-        result.forEach(n -> System.out.print(n + " "));
+        Map<Integer, Integer> binarySearchResults = new HashMap<>();
+        lookingFor.forEach(n -> {
+            if (binarySearchResults.get(n) == null) {
+                int result = searchForNumInArr(nums, n);
+                binarySearchResults.put(n, result);
+            }
+            System.out.print(binarySearchResults.get(n) + " ");
+        });
+        //List<Integer> result = searchForNumsInArrayBad(lookingFor, nums);
+        //result.forEach(n -> System.out.print(n + " "));
     }
 
-    private static List<Integer> searchForNumsInArray(List<Integer> lookingFor, int[] nums) {
+    private static int searchForNumInArr(int[] nums, int target) {
+        int start = 0;
+        int end = nums.length - 1;
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            int curEl = nums[mid];
+
+            if (curEl > target) {
+                end = mid - 1;
+            } else if (curEl < target) {
+                start = mid + 1;
+            } else {
+                // required indices are 1-indexed
+                return mid + 1;
+            }
+        }
+
+        return -1;
+    }
+
+
+    private static List<Integer> searchForNumsInArrayBad(List<Integer> lookingFor, int[] nums) {
         List<Integer> result = IntStream.generate(() -> -1)
             .limit(lookingFor.size())
             .boxed().collect(Collectors.toList());
