@@ -46,6 +46,7 @@ public class FindCollectionOfElements {
                 } else if (curEl > curTarget) {
                     end = mid - 1;
                 } else {
+                    // requirements are asking for the result to be in 1-based indexing
                     numsToIndices.get(curTarget).forEach(i -> result.set(i, mid + 1));
                     break;
                 }
