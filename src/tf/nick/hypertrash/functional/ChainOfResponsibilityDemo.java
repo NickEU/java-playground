@@ -1,4 +1,4 @@
-package tf.nick.hypertrash;
+package tf.nick.hypertrash.functional;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
