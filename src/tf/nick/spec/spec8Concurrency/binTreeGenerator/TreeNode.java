@@ -40,7 +40,7 @@ class TreeNode {
             tree.insert(0, right);
         }
 
-        tree.insert(0, String.format("L=%h R=%h W=%d ", left, right, weight));
+        tree.insert(0, String.format("D=%d W=%d ", getDepthLvl(), getWeight()));
         return tree.toString();
     }
 }
