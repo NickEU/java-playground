@@ -2,6 +2,8 @@ package tf.nick.linAlg.vectors.dotProductSignScalarMulti;
 
 import java.util.stream.IntStream;
 
+import static tf.nick.linAlg.vectors.Util.dotProductOfVectors;
+
 public class InvariantTester {
     public static void main(String[] args) {
         var a = new int[]{2, 3, 4};
@@ -23,12 +25,5 @@ public class InvariantTester {
     private static void scaleVector(int[] vector, int scalar) {
         IntStream.range(0, vector.length)
             .forEach(i -> vector[i] = scalar * vector[i]);
-    }
-
-    private static int dotProductOfVectors(int[] a, int[] b) {
-        if (a.length != b.length) throw new IllegalArgumentException();
-        return IntStream.range(0, a.length)
-            .map(i -> a[i] * b[i])
-            .sum();
     }
 }
