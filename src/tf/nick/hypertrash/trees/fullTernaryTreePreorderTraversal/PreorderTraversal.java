@@ -9,7 +9,7 @@ class PreorderTraversal {
     public static void main(String[] args) {
         targetDepth = new Scanner(System.in).nextInt();
         initializeDepthsToValues();
-        var tree = buildTree(0, new Tree(0, 0));
+        var tree = buildTree(new Tree(0, 0));
         traverseTreePreOrder(tree);
     }
 
@@ -39,14 +39,17 @@ class PreorderTraversal {
         }
     }
 
-    private static Tree buildTree(int depth, Tree tree) {
-        if (depth < targetDepth) {
-            depth++;
-            tree.left = buildTree(depth, new Tree(depth, depthsToValues[tree.depth]++));
-            tree.center = buildTree(depth, new Tree(depth, depthsToValues[tree.depth]++));
-            tree.right = buildTree(depth, new Tree(depth, depthsToValues[tree.depth]++));
+    private static Tree buildTree(Tree tree) {
+        if (tree.depth < targetDepth) {
+            tree.left = buildChild(tree);
+            tree.center = buildChild(tree);
+            tree.right = buildChild(tree);
         }
         return tree;
+    }
+
+    private static Tree buildChild(Tree tree) {
+        return buildTree(new Tree(tree.depth + 1, depthsToValues[tree.depth]++));
     }
 }
 
