@@ -1,6 +1,7 @@
 package tf.nick.hypertrash.trees.fullTernaryTreePreorderTraversal;
 
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Queue;
 import java.util.Scanner;
 
@@ -16,9 +17,9 @@ public class PreorderTraversalIterative {
         int value = 0;
         var result = new Tree(value++, 0);
         queue.add(result);
-        while (!queue.isEmpty()) {
+        while (true) {
             var curNode = queue.poll();
-            if (curNode.depth == targetDepth) {
+            if (Objects.requireNonNull(curNode).depth == targetDepth) {
                 break;
             }
             curNode.left = buildChild(curNode, queue, value++);
