@@ -10,7 +10,7 @@ class PreorderTraversal {
         targetDepth = new Scanner(System.in).nextInt();
         initializeDepthsToValues();
         var tree = buildTree(new Tree(0, 0));
-        traverseTreePreOrder(tree);
+        Tree.traversePreOrder(tree);
     }
 
     private static void initializeDepthsToValues() {
@@ -20,22 +20,6 @@ class PreorderTraversal {
             int curVal = prevVal + (int) Math.pow(3, i);
             depthsToValues[i] = curVal;
             prevVal = curVal;
-        }
-    }
-
-    // In the pre-order traversal, we first visit the current node,
-    // then, we recursively visit the left child (if exists),
-    // and after that, we visit the right child (if exists).
-    private static void traverseTreePreOrder(Tree tree) {
-        System.out.print(tree.value + " ");
-        if (tree.left != null) {
-            traverseTreePreOrder(tree.left);
-        }
-        if (tree.center != null) {
-            traverseTreePreOrder(tree.center);
-        }
-        if (tree.right != null) {
-            traverseTreePreOrder(tree.right);
         }
     }
 
@@ -49,7 +33,7 @@ class PreorderTraversal {
     }
 
     private static Tree buildChild(Tree tree) {
-        return buildTree(new Tree(tree.depth + 1, depthsToValues[tree.depth]++));
+        return buildTree(new Tree(depthsToValues[tree.depth]++, tree.depth + 1));
     }
 }
 
